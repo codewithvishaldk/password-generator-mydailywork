@@ -1,0 +1,138 @@
+### Step-by-Step Guide
+
+1. **Create a New Python File**:
+   - Open Visual Studio Code.
+   - Create a new file and name it `password_generator.py`.
+
+2. **Write the Python Script**:
+   - Copy and paste the following code into `password_generator.py`.
+
+```python
+import random
+import string
+
+def generate_password(length, include_numbers, include_uppercase, include_special):
+    characters = string.ascii_lowercase
+    if include_numbers:
+        characters += string.digits
+    if include_uppercase:
+        characters += string.ascii_uppercase
+    if include_special:
+        characters += string.punctuation
+
+    password = ''.join(random.choice(characters) for _ in range(length))
+    return password
+
+def main():
+    print("Password Generator")
+
+    try:
+        length = int(input("Enter the desired length of the password: "))
+    except ValueError:
+        print("Invalid input! Please enter a numeric value.")
+        return
+
+    include_numbers = input("Include numbers? (yes/no): ").strip().lower() == 'yes'
+    include_uppercase = input("Include uppercase letters? (yes/no): ").strip().lower() == 'yes'
+    include_special = input("Include special characters? (yes/no): ").strip().lower() == 'yes'
+
+    password = generate_password(length, include_numbers, include_uppercase, include_special)
+    print(f"Generated password: {password}")
+
+if __name__ == "__main__":
+    main()
+```
+
+### Explanation of the Script
+
+- **Functions for Password Generation**:
+  - `generate_password(length, include_numbers, include_uppercase, include_special)`: Generates a password based on the specified length and complexity.
+    - Uses `string.ascii_lowercase` for lowercase letters.
+    - Adds `string.digits` if `include_numbers` is True.
+    - Adds `string.ascii_uppercase` if `include_uppercase` is True.
+    - Adds `string.punctuation` if `include_special` is True.
+    - Randomly selects characters from the combined set to generate the password.
+
+- **Main Function**:
+  - Prompts the user for the desired length of the password.
+  - Asks the user if they want to include numbers, uppercase letters, and special characters.
+  - Calls `generate_password` with the user's preferences and displays the generated password.
+
+### Running the Script
+
+1. **Save the File**:
+   - Save the `password_generator.py` file in your project directory.
+
+2. **Run the Script**:
+   - Open the terminal in VS Code (press ``Ctrl+` ``) and navigate to the directory where `password_generator.py` is saved.
+   - Run the script by typing:
+     ```bash
+     python password_generator.py
+     ```
+
+3. **Follow the Prompts**:
+   - Enter the desired length of the password.
+   - Specify whether to include numbers, uppercase letters, and special characters by typing "yes" or "no".
+   - The generated password will be displayed on the screen.
+
+### Creating a README.md File
+
+Here's a `README.md` file for your password generator project:
+
+```markdown
+# Password Generator
+
+## Description
+A password generator is a useful tool that generates strong and random passwords for users. This project creates a password generator application using Python, allowing users to specify the length and complexity of the password.
+
+## Features
+- Specify the desired length of the password
+- Option to include numbers
+- Option to include uppercase letters
+- Option to include special characters
+- Generates and displays the password
+
+## Prerequisites
+- Python 3.x
+
+## Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/codewithvishaldk/password-generator-mydailywork.git
+   cd password-generator
+   ```
+
+2. **Open the project in your preferred IDE**:
+   - Open Visual Studio Code or any other IDE.
+   - Navigate to the project directory.
+
+## Usage
+
+1. Open the terminal in your IDE or your system's command prompt.
+2. Navigate to the project directory.
+3. Run the password generator script:
+   ```bash
+   python password_generator.py
+   ```
+
+## Example
+
+When you run the application, you will be prompted to:
+- Enter the desired length of the password.
+- Specify whether to include numbers, uppercase letters, and special characters by typing "yes" or "no".
+- The application will generate and display a password based on your preferences.
+
+## Author
+
+- Vishal
+- Email: [vishal.2302305051@gmail.com](mailto:vishal.2302305051@gmail.com)
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+## Acknowledgements
+
+- [Python](https://www.python.org/) for being an amazing programming language.
+- [Visual Studio Code](https://code.visualstudio.com/) for being a powerful and user-friendly IDE.
